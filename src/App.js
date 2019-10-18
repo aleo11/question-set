@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Layout,Row,Col, BackTop} from 'antd'
+import {withRouter} from 'react-router-dom'
+const {
+    Header, Footer, Content,
+  } = Layout;
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+  @withRouter
+class App extends React.Component{
+    handleClickHome(){
+        this.props.history.push('/')
+    }
+    render(){
+        return (
+            <Layout>
+                <BackTop/>
+                <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                    <Row type="flex" justify="end">
+                        <Col  span={2}>
+                            <svg
+                                onClick={()=>this.handleClickHome()} 
+                                className="icon home" aria-hidden="true">
+                                <use xlinkHref="#icon-zhuye--"></use>
+                            </svg>
+                        </Col>
+                        <Col  span={3}>
+                            <svg className="icon avator" aria-hidden="true">
+                                <use xlinkHref="#icon-touxiang"></use>
+                            </svg>
+                            欢迎：aleo
+                        </Col>
+                        <Col  span={1}>退出</Col>
+                    </Row>
+                </Header>
+                    <Content className="route-body">
+                        {this.props.children}
+                    </Content>
+                <Footer></Footer>
+            </Layout>
+        )
+    }
 }
-
-export default App;
+export default App

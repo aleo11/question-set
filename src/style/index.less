@@ -1,0 +1,46 @@
+@import './default.less';
+@import './loading.less';
+body{
+    background: @colorBG;
+    font-family: 'Microsoft Yahei',verdana;
+    // padding:10px;
+}
+.ant-layout-header{
+    .home{
+        cursor: pointer;
+        vertical-align: middle;
+        width:2rem;
+        height:2rem
+    }
+    .avator{
+        margin-right: 10px;
+        vertical-align: middle;
+        width:2.5rem;
+        height:2.5rem
+    }
+    color:white;
+    background:@colorL
+}
+.route-body{
+    min-width: 600px;
+    margin: 74px 3vw 2vh 3vw;
+}
+.icon {
+    margin-right:5px;
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+table{
+   
+    table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+}
+td{
+    width:100%;
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
